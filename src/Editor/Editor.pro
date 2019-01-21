@@ -16,6 +16,10 @@ win32: {
     QT += winextras
 }
 
+unix:{
+    QMAKE_CXXFLAGS += --std=c++17 
+}
+
 TEMPLATE = app
 DESTDIR = $$PWD/../../bin
 UI_DIR = $$BUILD_DIR/Editor
@@ -34,11 +38,11 @@ CONFIG(debug, debug|release) {
 
     # Debug Libs
     LIBS += -L$$BUILD_DIR/Core/ -lCored \
-            -L$$EXTERNALS_DIR/assimp/lib/Debug -lassimp-vc140-mt \
+           -L$$EXTERNALS_DIR/assimp/build/code -lassimp \
             -L$$EXTERNALS_DIR/LibCommon/Build -lLibCommond \
-            -L$$EXTERNALS_DIR/nod/lib/Debug -lnod \
-            -L$$EXTERNALS_DIR/nod/logvisor/Debug -llogvisor \
-            -L$$EXTERNALS_DIR/zlib/lib/ -lzlibd
+            -L$$EXTERNALS_DIR/nod/build/lib/ -lnod \
+            -L$$EXTERNALS_DIR/nod/build/logvisor -llogvisor \
+            -L$$EXTERNALS_DIR/zlib/ -lzlibd
 
     # Debug Target Dependencies
     win32 {
@@ -56,11 +60,11 @@ CONFIG(release, debug|release) {
 
     # Release Libs
     LIBS += -L$$BUILD_DIR/Core/ -lCore \
-            -L$$EXTERNALS_DIR/assimp/lib/Release -lassimp-vc140-mt \
+            -L$$EXTERNALS_DIR/assimp/build/code -lassimp \
             -L$$EXTERNALS_DIR/LibCommon/Build -lLibCommon \
-            -L$$EXTERNALS_DIR/nod/lib/Release -lnod \
-            -L$$EXTERNALS_DIR/nod/logvisor/Release -llogvisor \
-            -L$$EXTERNALS_DIR/zlib/lib/ -lzlib
+            -L$$EXTERNALS_DIR/nod/build/lib/ -lnod \
+            -L$$EXTERNALS_DIR/nod/build/logvisor -llogvisor \
+            -L$$EXTERNALS_DIR/zlib/ -lzlibd
 
     # Release Target Dependencies
     win32 {
@@ -70,8 +74,10 @@ CONFIG(release, debug|release) {
 }
 
 # Debug/Release Libs
-LIBS += -L$$EXTERNALS_DIR/glew-2.1.0/lib/Release/x64 -lglew32s \
-        -lopengl32
+LIBS += -L$$EXTERNALS_DIR/glew-2.1.0/lib/ -lGLEW \
+        -lGL \
+        -ldl \
+        -lstdc++fs
 
 # Include Paths
 INCLUDEPATH += $$PWE_MAIN_INCLUDE \
@@ -207,7 +213,8 @@ HEADERS += \
     CTweakEditor.h \
     Undo/CEditIntrinsicPropertyCommand.h \
     Undo/TSerializeUndoCommand.h \
-    StringEditor/CStringMimeData.h
+    StringEditor/CStringMimeData.h \
+    $$EXTERNALS_DIR/CodeGen/include/codegen/EnumReflection.h
 
 # Source Files
 SOURCES += \

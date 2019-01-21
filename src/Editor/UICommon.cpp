@@ -20,7 +20,9 @@ void OpenContainingFolder(const QString& rkPath)
     Args << "/select," << QDir::toNativeSeparators(rkPath);
     QProcess::startDetached("explorer", Args);
 #else
-#error OpenContainingFolder() not implemented!
+    QStringList Args;
+    Args << "/select," << QDir::toNativeSeparators(rkPath);
+    QProcess::startDetached("dolphin", Args); //only works with dolphin-fm right now
 #endif
 }
 

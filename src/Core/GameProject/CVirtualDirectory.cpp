@@ -51,7 +51,7 @@ TString CVirtualDirectory::FullPath() const
     if (IsRoot())
         return "";
     else
-        return (mpParent ? mpParent->FullPath() + mName : mName) + '/';
+        return (mpParent ? (TString)(mpParent->FullPath() + mName) : mName) + '/';
 }
 
 TString CVirtualDirectory::AbsolutePath() const
@@ -67,7 +67,7 @@ CVirtualDirectory* CVirtualDirectory::GetRoot()
 CVirtualDirectory* CVirtualDirectory::FindChildDirectory(const TString& rkName, bool AllowCreate)
 {
     uint32 SlashIdx = rkName.IndexOf("\\/");
-    TString DirName = (SlashIdx == -1 ? rkName : rkName.SubString(0, SlashIdx));
+    TString DirName = (SlashIdx == -1 ? rkName : (TString) rkName.SubString(0, SlashIdx));
 
     for (uint32 iSub = 0; iSub < mSubdirectories.size(); iSub++)
     {
@@ -151,7 +151,7 @@ bool CVirtualDirectory::AddChild(const TString &rkPath, CResourceEntry *pEntry)
     else if (IsValidDirectoryPath(rkPath))
     {
         uint32 SlashIdx = rkPath.IndexOf("\\/");
-        TString DirName = (SlashIdx == -1 ? rkPath : rkPath.SubString(0, SlashIdx));
+        TString DirName = (SlashIdx == -1 ? rkPath : (TString) rkPath.SubString(0, SlashIdx));
         TString Remaining = (SlashIdx == -1 ? "" : rkPath.SubString(SlashIdx + 1, rkPath.Size() - SlashIdx));
 
         // Check if this subdirectory already exists

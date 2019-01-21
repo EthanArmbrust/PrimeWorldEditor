@@ -2,6 +2,7 @@
 #include <Common/Macros.h>
 #include <Common/Log.h>
 #include <Common/Math/MathUtil.h>
+#include <math.h>
 
 bool CAnimationLoader::UncompressedCheckEchoes()
 {

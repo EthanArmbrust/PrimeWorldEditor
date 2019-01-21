@@ -33,7 +33,7 @@ struct SGameInfo
         }
     }
 };
-SGameInfo gGameList[EGame::Max];
+SGameInfo gGameList[7];
 
 /** Whether the game list has been loaded */
 bool gLoadedGameList = false;

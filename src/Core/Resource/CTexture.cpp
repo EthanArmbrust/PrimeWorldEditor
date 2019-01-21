@@ -1,4 +1,5 @@
 #include "CTexture.h"
+#include <math.h>
 
 CTexture::CTexture(CResourceEntry *pEntry /*= 0*/)
     : CResource(pEntry)

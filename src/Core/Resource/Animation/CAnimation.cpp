@@ -2,6 +2,9 @@
 #include <Common/Math/CTransform4f.h>
 #include <Common/Math/MathUtil.h>
 
+#include <math.h>
+#include <float.h>
+
 CAnimation::CAnimation(CResourceEntry *pEntry /*= 0*/)
     : CResource(pEntry)
     , mDuration(0.f)

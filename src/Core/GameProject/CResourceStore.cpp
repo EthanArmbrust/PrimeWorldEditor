@@ -23,6 +23,7 @@ CResourceStore::CResourceStore(const TString& rkDatabasePath)
 {
     mpDatabaseRoot = new CVirtualDirectory(this);
     mDatabasePath = FileUtil::MakeAbsolute(rkDatabasePath.GetFileDirectory());
+    //mDatabasePath = "/" + mDatabasePath; //fix for linux maybe?
     LoadDatabaseCache();
 }
 
@@ -542,7 +543,7 @@ void CResourceStore::ImportNamesFromPakContentsTxt(const TString& rkTxtPath, boo
     // todo: move to CAssetNameMap?
     std::map<CResourceEntry*, TString> PathMap;
     FILE *pContentsFile;
-    fopen_s(&pContentsFile, *rkTxtPath, "r");
+    pContentsFile = fopen(*rkTxtPath, "r");
 
     if (!pContentsFile)
     {

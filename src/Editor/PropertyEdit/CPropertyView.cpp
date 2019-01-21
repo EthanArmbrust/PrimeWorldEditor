@@ -6,6 +6,7 @@
 #include <QEvent>
 #include <QMenu>
 #include <QToolTip>
+#include <QHeaderView>
 
 CPropertyView::CPropertyView(QWidget *pParent)
     : QTreeView(pParent)

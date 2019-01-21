@@ -17,7 +17,7 @@ win32 {
 }
 unix {
     target.path = /usr/lib
-    QMAKE_CXXFLAGS += /WX
+    QMAKE_CXXFLAGS += --std=c++17
     INSTALLS += target
 }
 
@@ -252,7 +252,8 @@ HEADERS += \
     Tweaks/CTweakManager.h \
     Tweaks/CTweakData.h \
     Tweaks/CTweakLoader.h \
-    Tweaks/CTweakCooker.h
+    Tweaks/CTweakCooker.h \
+    EnumReflection.h
 
 # Source Files
 SOURCES += \

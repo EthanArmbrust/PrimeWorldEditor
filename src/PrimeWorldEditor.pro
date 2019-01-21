@@ -8,7 +8,7 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 # Add library subdirs
-SUBDIRS += ..\externals\LibCommon\Source\LibCommon.pro
+SUBDIRS += ../externals/LibCommon/Source/LibCommon.pro
 
 # Add PWE subdirs
 SUBDIRS += Core Editor

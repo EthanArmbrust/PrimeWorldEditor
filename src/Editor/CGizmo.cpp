@@ -8,6 +8,7 @@
 #include <iostream>
 #include <QApplication>
 #include <QDesktopWidget>
+#include <math.h>
 
 CGizmo::CGizmo()
     : mSelectedAxes(EAxis::None)

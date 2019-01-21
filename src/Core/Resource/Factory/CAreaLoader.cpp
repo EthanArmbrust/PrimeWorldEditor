@@ -9,6 +9,7 @@
 #include <Common/CFourCC.h>
 
 #include <iostream>
+#include <float.h>
 
 CAreaLoader::CAreaLoader()
     : mpMREA(nullptr)

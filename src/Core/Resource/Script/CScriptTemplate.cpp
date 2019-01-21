@@ -4,6 +4,7 @@
 #include "Core/GameProject/CResourceStore.h"
 #include "Core/Resource/Animation/CAnimSet.h"
 #include <Common/Log.h>
+#include "Property/IProperty.h"
 
 #include <iostream>
 #include <string>
@@ -112,13 +113,13 @@ EGame CScriptTemplate::Game() const
 }
 
 // ************ PROPERTY FETCHING ************
-template<class PropType>
+template<class PropType, EPropertyType PropEnum>
 PropType* TFetchProperty(CStructProperty* pProperties, const TIDString& rkID)
 {
     if (rkID.IsEmpty()) return nullptr;
     IProperty *pProp = pProperties->ChildByIDString(rkID);
 
-    if (pProp && (pProp->Type() == PropEnum))
+    if (pProp && (pProp->Type() ==  PropEnum))
         return static_cast<PropType*>(pProp)->ValuePtr();
     else
         return nullptr;

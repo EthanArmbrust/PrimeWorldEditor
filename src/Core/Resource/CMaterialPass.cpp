@@ -2,6 +2,7 @@
 #include "CMaterial.h"
 #include "Core/Render/CGraphics.h"
 #include <Common/CTimer.h>
+#include <math.h>
 
 CMaterialPass::CMaterialPass(CMaterial *pParent)
     : mPassType("CUST")

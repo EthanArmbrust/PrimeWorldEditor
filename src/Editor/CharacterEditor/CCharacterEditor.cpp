@@ -7,6 +7,8 @@
 #include <QMessageBox>
 #include <QTreeView>
 
+#include <math.h>
+
 const CVector3f CCharacterEditor::skDefaultOrbitTarget = CVector3f(0,0,1);
 const float CCharacterEditor::skDefaultOrbitDistance = 4.f;
 

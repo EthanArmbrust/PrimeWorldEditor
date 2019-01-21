@@ -74,11 +74,15 @@ public:
         return Future.result();
     }
 
-    template<>
+
     void WaitForResults(QFuture<void> Future)
     {
         InternalWaitForResults(Future);
     }
+
+
 };
+
+
 
 #endif // CPROGRESSDIALOG_H

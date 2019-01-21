@@ -10,6 +10,8 @@
 #include "Core/Resource/Script/NGameList.h"
 #include "Core/Resource/Script/NPropertyMap.h"
 
+#include <float.h>
+
 /** IProperty */
 IProperty::IProperty(EGame Game)
     : mpParent( nullptr )

@@ -2,6 +2,7 @@
 #include "CGraphics.h"
 #include <Common/Math/CQuaternion.h>
 #include <Common/Math/MathUtil.h>
+#include <math.h>
 
 CCamera::CCamera()
     : mMode(ECameraMoveMode::Free)
